@@ -36,6 +36,10 @@ app.get('/new', async (req, res) => {
     res.render('new');
 });
 
+app.get('/post', async (req, res) => {
+    res.render('post', { post: post });
+});
+
 // routing
 app.use('/posts', postRouter);
 

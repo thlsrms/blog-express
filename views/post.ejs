@@ -1,0 +1,14 @@
+<%- include("./partials/header.ejs") %>
+<main>
+    <div class="blog-post">
+        <div>
+            <h2><%= post.title %> </h2>
+            <p><%= (post.updated.getDate() + 1) + "-" + post.updated.getMonth() + "-" + post.updated.getFullYear() + " " + post.updated.getHours() + ":" + post.updated.getMinutes() + ":" + post.updated.getSeconds() %>
+            </p>
+        </div>
+        <p id="postAuthorName">Written by <span><%= post.author %></span> </p>
+        <a href="/"><- Go back.</a>
+        <p><%= post.content %> </p>
+    </div>
+</main>
+<%- include("./partials/footer.ejs") %>
