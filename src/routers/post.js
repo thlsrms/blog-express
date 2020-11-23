@@ -11,26 +11,27 @@ router.get('/posts', async (req, res) => {
 });
 
 router.post('/posts/write', async (req, res) => {
+    console.log(req.body.post);
     let timeAndDateNow = Date.now();
     /* TODO: FIND A BETTER WAY TO DO THIS: */
-    let newBlogPost = new Question();
+    let newBlogPost = new Post();
     newBlogPost.title = req.body.post.title;
     newBlogPost.content = req.body.post.content;
     newBlogPost.author = req.body.post.author;
     newBlogPost.updated = timeAndDateNow;
     /* --------------------------------------- */
-
+    console.log(newBlogPost);
     await Post.find({ title: newBlogPost.title }).then(async (posts) => {
         if (posts.length > 0) {
-            res.status(304).send('Question already exists');
+            res.status(304).send('Post already exists');
         } else {
-            await newQuestion.save().then((posts) => res.status(201).send(posts));
+            await newBlogPost.save().then((posts) => res.status(201).send(posts));
         }
     }).catch((err) => res.status(400).send(err));
 });
 
 router.get('/posts/search', async (req, res) => {
-/*  await Question.find({ name: { $regex: req.query.search, $options: 'i' } })
+/*  await Post.find({ name: { $regex: req.query.search, $options: 'i' } })
     .then( (data) => {
         res.render()
     }); */

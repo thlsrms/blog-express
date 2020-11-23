@@ -34,7 +34,7 @@ app.get('/new', async (req, res) => {
 });
 
 // routing
-/* app.use('/api', postRouter); */
+app.use('/api', postRouter);
 
 // 404
 app.use((req, res) => {
