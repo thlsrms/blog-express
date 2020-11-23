@@ -1,7 +1,6 @@
 'use strict';
 const express = require('express');
 const path = require('path');
-const url = require('url');
 require('./db/mngdbconnect');
 
 const postRouter = require('./routers/post');
@@ -28,10 +27,8 @@ app.use(express.json());
 // endpoints
 app.get('/', async (req, res) => {
     await Post.find({}).then((posts) => {
-        res.render('index', { posts: posts});
-        return;
+        res.render('index', { posts: posts });
     });
-    //res.render('index');
 });
 
 app.get('/new', async (req, res) => {
@@ -45,3 +42,5 @@ app.use('/api', postRouter);
 app.use((req, res) => {
     res.status(404).render('404');
 });
+
+process.on('SIGINT', () => process.exit(1));
