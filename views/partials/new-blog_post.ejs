@@ -1,15 +1,12 @@
 <form id="writeNewPost" action="/api/posts/write" method="POST">
     <div>
-        <label for="title">Post Title</label>
+        <label for="title">Title</label>
         <input type="text" id="title" name=post[title] placeholder="New Post" required>
     </div>
-    <div>
-        <label for="content">Post content</label>
-        <textarea id="content" name=post[content] rows="30" cols="90" required>Lit content goes here...</textarea>
-    </div>
+    <textarea id="content" name=post[content] rows="30" cols="90" placeholder="Lit content goes here..." required></textarea>
     <div>
         <label for="author">Author</label>
         <input type="text" id="author" name=post[author] placeholder="Post author" required>
+        <button type="submit"><b>Submit</b></button>
     </div>
-    <button type="submit"><b>Submit</b></button>
 </form>
