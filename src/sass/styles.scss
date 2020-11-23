@@ -1,9 +1,178 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+$website-maxWidth: 1200px;
+$background-color: #301a0b;
+$transparent-background-color: rgba(41, 15, 2, 0.3);
+$main-color: #f3ff86;
+$accent-color: #ff661f;
+$super-accent-color: rgb(255, 0, 0);
 
 * {
     margin: 0;
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Arvo', serif;
+    
+    color: $main-color;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: 98vh;
+    width: 98vw;
+    top: 1vh;
+    left: 1vw;
+    background-color: $background-color;
+    min-width: 600px;
+}
+
+#navHeader {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 80px 40px 40px;
+    grid-template-areas: 
+    "top-left top-left title title top-right top-right"
+    "left left slogan slogan right right"
+    "bottom-left bottom-left home post bottom-right bottom-right";
+    margin: auto;
+    border-bottom: $accent-color solid;
+
+    #siteTitle {
+        grid-area: title;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 225px;
+        
+        h1 {
+            font-size: xx-large;
+            -webkit-text-stroke: 1px $super-accent-color;
+        }
+    }
+    #siteTitle:hover > h1{
+        color: $accent-color;
+    }
+
+    p {
+        grid-area: slogan;
+        text-align: center;
+    }
+
+    #homeLink {
+        grid-area: home;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -webkit-text-stroke: 0.25px $super-accent-color;
+    }
+    #homeLink:hover {
+        color: $accent-color;
+        border-bottom: 5px $accent-color solid;
+    }
+
+    #postLink {
+        grid-area: post;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        -webkit-text-stroke: 0.25px $super-accent-color;
+    }
+    #postLink:hover {
+        color: $accent-color;
+        border-bottom: 5px $accent-color solid;
+    }
+}
+
+main {
+    height: 100%;
+    max-width: $website-maxWidth;
+    margin: auto;
+    padding: 50px;
+}
+
+.blog-post {
+    max-height: 135px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-bottom: 2px dashed $accent-color;
+    position: relative;
+
+    .tooltip-text {
+        font-weight: bold;
+        visibility: hidden;
+        width: 200px;
+        background-color: $main-color;
+        color: $background-color;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        top: 125%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+}
+
+.blog-post:hover {
+    padding: 7px;
+    border-bottom: 3px dashed $accent-color;
+}
+
+.blog-post:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.blog-post > div {
+    border: 2px dashed $accent-color;
+    border-top: none;
+    border-bottom: none;
+    margin: 0 0 60px 0;
+    padding: 10px;
+    position: relative;
+    top: 40px;
+    background: $transparent-background-color;
+
+    div {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        bottom: 40px;
+        right: 8px;
+
+        h2 {
+            color: $accent-color;
+            border-bottom: 2px dashed $accent-color;
+            -webkit-text-stroke: 0.5px rgb(0, 0, 0);
+        }
+        p {
+            border-right: 2px dashed $accent-color;
+            position: relative;
+            left: 20px;
+            padding-right: 20px;
+        }
+    }
+    #postAuthorName {
+        position: relative;
+        bottom: 25px;
+        
+        span {
+            border-bottom: dotted 2px $main-color;
+            color: $accent-color;
+        }
+    }
+}
+
+footer {
+    border-top: $accent-color solid;
+    text-align: center;
+    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
