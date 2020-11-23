@@ -10,6 +10,14 @@ router.get('/posts', async (req, res) => {
         });
 });
 
+router.get('/post/:id', async (req, res) => {
+    await Post.findById(req.params.id,)
+        .then((post) => {
+            // TODO: render page with post
+            res.status(201).send(post);
+        }).catch((err) => res.status(500).send(err));
+});
+
 router.post('/posts/write', async (req, res) => {
     let timeAndDateNow = Date.now();
     /* TODO: FIND A BETTER WAY TO DO THIS: */
