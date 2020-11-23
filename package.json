@@ -4,8 +4,10 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "dev": "nodemon /src/index.js",
-    "start": "node /src/index.js"
+    "start": "node /src/index.js",
+    "dev": "npm run code & npm run build-css",
+    "build-css": "sass --watch src/sass:public/css/ --no-source-map -s compressed",
+    "code": "nodemon /src/index.js"
   },
   "author": "ThalesR",
   "license": "MIT",
