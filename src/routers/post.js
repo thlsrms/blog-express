@@ -31,7 +31,6 @@ router.post('/write', async (req, res) => {
         if (posts.length > 0) {
             res.status(304).send('Post already exists');
         } else {
-            // TODO: Change send to redirect
             await newBlogPost.save().then((posts) => res.redirect('/'));
         }
     }).catch((err) => res.status(400).send(err));
