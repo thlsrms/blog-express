@@ -3,7 +3,7 @@
     <% if (posts.length > 0) { %>
     <% posts.forEach(post => { %>
         <a href="/posts/<%= post._id %>">
-            <%- include("./partials/post.ejs", {post: post}) %>
+            <%- include("./partials/snippet.ejs", {post: post}) %>
         </a>
     <% }) %>
     <% } %>

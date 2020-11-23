@@ -93,7 +93,7 @@ main {
     padding: 30px;
 }
 
-.blog-post {
+.post-snippet {
     max-height: 135px;
     overflow: hidden;
     margin-bottom: 20px;
@@ -119,26 +119,26 @@ main {
     }
 }
 
-.blog-post:hover {
+.post-snippet:hover {
     padding: 7px;
     border-bottom: 3px dashed $accent-color;
 }
 
-.blog-post:hover .tooltip-text {
+.post-snippet:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
 }
 
-.blog-post:hover h2 {
+.post-snippet:hover h2 {
     font-size: 28px;
     -webkit-text-stroke: 1.15px $super-accent-color;
 }
 
-.blog-post:hover div>div {
+.post-snippet:hover div>div {
     bottom: 44px;
 }
 
-.blog-post > div {
+.post-snippet > div {
     border: 2px dashed $accent-color;
     border-top: none;
     border-bottom: none;
