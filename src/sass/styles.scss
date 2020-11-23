@@ -67,24 +67,20 @@ body {
 
     #homeLink {
         grid-area: home;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        -webkit-text-stroke: 0.5px $super-accent-color;
-    }
-    #homeLink:hover {
-        color: $accent-color;
-        border-bottom: 5px $accent-color solid;
     }
 
     #postLink {
         grid-area: post;
+    }
+
+    #homeLink, #postLink {
         display: flex;
         justify-content: center;
         align-items: center;
         -webkit-text-stroke: 0.5px $super-accent-color;
+        font-size: 17px;
     }
-    #postLink:hover {
+    #homeLink:hover, #postLink:hover {
         color: $accent-color;
         border-bottom: 5px $accent-color solid;
     }
