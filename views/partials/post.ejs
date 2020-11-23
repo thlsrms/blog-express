@@ -1,5 +1,12 @@
-<div>
-    <h2><%= post.title %> </h2>
-    <p><%= post.content %> </p>
-    <p><%= post.author %> on <%= post.updated %></p>
+<div class="blog-post">
+    <div>
+        <div>
+            <h2><%= post.title %> </h2>
+            <span class="tooltip-text">Click to read more...</span>
+            <p><%= (post.updated.getDate() + 1) + "-" + post.updated.getMonth() + "-" + post.updated.getFullYear() + " " + post.updated.getHours() + ":" + post.updated.getMinutes() + ":" + post.updated.getSeconds() %>
+            </p>
+        </div>
+        <p id="postAuthorName">Written by <span><%= post.author %></span> </p>
+        <p><%= post.content %> </p>
+    </div>
 </div>

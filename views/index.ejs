@@ -2,7 +2,9 @@
 <main>
     <% if (posts.length > 0) { %>
     <% posts.forEach(post => { %>
-        <%- include("./partials/post.ejs", {post: post}) %>
+        <a href="/api/post/<%= post._id %>">
+            <%- include("./partials/post.ejs", {post: post}) %>
+        </a>
     <% }) %>
     <% } %>
 </main>
