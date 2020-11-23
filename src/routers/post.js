@@ -3,14 +3,14 @@ const express = require('express');
 const Post = require('../db/models/post');
 const router = new express.Router();
 
-router.get('/posts', async (req, res) => {
+router.get('/all', async (req, res) => {
     await Post.find({})
         .then((data) => {
             res.status(201).send(data);
         });
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     await Post.findById(req.params.id,)
         .then((post) => {
             // TODO: render page with post
@@ -18,7 +18,7 @@ router.get('/post/:id', async (req, res) => {
         }).catch((err) => res.status(500).send(err));
 });
 
-router.post('/posts/write', async (req, res) => {
+router.post('/write', async (req, res) => {
     let timeAndDateNow = Date.now();
     /* TODO: FIND A BETTER WAY TO DO THIS: */
     let newBlogPost = new Post();
@@ -32,24 +32,24 @@ router.post('/posts/write', async (req, res) => {
             res.status(304).send('Post already exists');
         } else {
             // TODO: Change send to redirect
-            await newBlogPost.save().then((posts) => res.status(201).send(posts));
+            await newBlogPost.save().then((posts) => res.redirect('/'));
         }
     }).catch((err) => res.status(400).send(err));
 });
 
-router.get('/posts/search', async (req, res) => {
-/*  await Post.find({ name: { $regex: req.query.search, $options: 'i' } })
+/* router.get('/search', async (req, res) => {
+ await Post.find({ name: { $regex: req.query.search, $options: 'i' } })
     .then( (data) => {
         res.render()
-    }); */
+    });
 });
 
-router.patch('/posts/:id', async (req, res) => {
+router.patch('/:id', async (req, res) => {
     await Post.update();
 });
 
-router.delete('/posts/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     await Post.delete();
-});
+}); */
 
 module.exports = router;
