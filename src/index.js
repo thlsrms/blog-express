@@ -5,6 +5,7 @@ const url = require('url');
 require('./db/mngdbconnect');
 
 const postRouter = require('./routers/post');
+const Post = require('./db/models/post');
 
 const port = process.env.PORT || 3000;
 // express app
@@ -26,7 +27,11 @@ app.use(express.json());
 
 // endpoints
 app.get('/', async (req, res) => {
-    res.render('index');
+    await Post.find({}).then((posts) => {
+        res.render('index', { posts: posts});
+        return;
+    });
+    //res.render('index');
 });
 
 app.get('/new', async (req, res) => {
