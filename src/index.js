@@ -27,6 +27,7 @@ app.use(express.json());
 // endpoints
 app.get('/', async (req, res) => {
     await Post.find({}).then((posts) => {
+        posts.sort((elemA, elemB) => elemA.updated < elemB.updated ? 1 : -1);
         res.render('index', { posts: posts });
     });
 });
