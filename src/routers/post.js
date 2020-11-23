@@ -11,7 +11,6 @@ router.get('/posts', async (req, res) => {
 });
 
 router.post('/posts/write', async (req, res) => {
-    console.log(req.body.post);
     let timeAndDateNow = Date.now();
     /* TODO: FIND A BETTER WAY TO DO THIS: */
     let newBlogPost = new Post();
@@ -20,11 +19,11 @@ router.post('/posts/write', async (req, res) => {
     newBlogPost.author = req.body.post.author;
     newBlogPost.updated = timeAndDateNow;
     /* --------------------------------------- */
-    console.log(newBlogPost);
     await Post.find({ title: newBlogPost.title }).then(async (posts) => {
         if (posts.length > 0) {
             res.status(304).send('Post already exists');
         } else {
+            // TODO: Change send to redirect
             await newBlogPost.save().then((posts) => res.status(201).send(posts));
         }
     }).catch((err) => res.status(400).send(err));
