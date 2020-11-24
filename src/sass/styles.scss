@@ -105,6 +105,7 @@ main {
     margin: auto;
     padding: 30px;
     max-height: 720px;
+    overflow: auto;
 
     a {
         color: $accent-color;
