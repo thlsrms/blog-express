@@ -18,14 +18,8 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/write', async (req, res) => {
-    let timeAndDateNow = Date.now();
-    /* TODO: FIND A BETTER WAY TO DO THIS: */
-    let newBlogPost = new Post();
-    newBlogPost.title = req.body.post.title;
-    newBlogPost.content = req.body.post.content;
-    newBlogPost.author = req.body.post.author;
-    newBlogPost.updated = timeAndDateNow;
-    /* --------------------------------------- */
+    let newBlogPost = new Post(req.body.post);
+
     await Post.find({ title: newBlogPost.title }).then(async (posts) => {
         if (posts.length > 0) {
             res.status(304).send('Post already exists');
