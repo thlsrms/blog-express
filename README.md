@@ -1,2 +1,2 @@
-# Lit Thoughts - a express blog.
+# Lit Thoughts - an express blog.
 ## [Go to Heroku](https://onfire-blogexpress.herokuapp.com/)
