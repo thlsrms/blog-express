@@ -21,6 +21,17 @@ $super-accent-color: rgb(215, 0, 0);
     opacity: 0.5;
 }
 
+/* Scroll */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: $main-color;
+}
+::-webkit-scrollbar-thumb {
+    background: $accent-color;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -31,6 +42,7 @@ body {
     left: 1vw;
     background-color: $background-color;
     min-width: 760px;
+    overflow: hidden;
 }
 
 #navHeader {
@@ -92,6 +104,7 @@ main {
     max-width: $website-maxWidth;
     margin: auto;
     padding: 30px;
+    max-height: 720px;
 
     a {
         color: $accent-color;
@@ -190,6 +203,8 @@ main {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    max-width: 960px;
+    margin: auto;
 
     label {
         font-size: 17px;
@@ -199,8 +214,8 @@ main {
         border: none;
         background: $transparent-background-color;
         border: $accent-color solid 0.5px;
-        height: 32px;
-        width: 90%;
+        height: 40px;
+        width: 460px;
         max-width: 440px;
         margin: 0 5px 5px 20px;
         text-align: center;
@@ -213,12 +228,13 @@ main {
         border: $accent-color solid 0.5px;
         padding: 15px;
         font-size: 15px;
+        white-space: pre-wrap;
     }
 
     #postTitle, #postAuthor {
         display: flex;
-        width: 80%;
-        justify-content: space-evenly;
+        width: 640px;
+        justify-content: space-around;
         align-items: center;
     }
 
@@ -240,6 +256,7 @@ main {
     width: 100%;
     height: 100%;
     flex: 0 0 100%;
+    overflow: auto;
 
     div {
         display: flex;
@@ -273,6 +290,11 @@ main {
 
     a {
         margin-bottom: 20px;
+    }
+
+    .blog-content {
+        top: 0px;
+        white-space: pre-wrap;
     }
 }
 
