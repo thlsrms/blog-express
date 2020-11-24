@@ -13,7 +13,6 @@ router.get('/all', async (req, res) => {
 router.get('/:id', async (req, res) => {
     await Post.findById(req.params.id,)
         .then((post) => {
-            // TODO: render page with post
             res.render('post', { post: post });
         }).catch((err) => res.status(500).send(err));
 });
